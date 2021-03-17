@@ -42,21 +42,20 @@ function shuffle(array) {
 function doit() {
 
     members = shuffle(members);
+    console.log(members)
     var order = ''
-    for (i in members) {
-        var num = parseInt(i) + 1
-        var num = num.toString()
-        order += num + "-" + members[i] + ", " + "</br>"
+    var time = 3000
+    var pick = 10
+    for (var i = 0; i < members.length; i++) {
+        setTimeout(function () {
+            var node = document.createElement("LI");
+            var textnode = document.createTextNode(pick + " " + members[pick - 1]);
+            node.appendChild(textnode);
+            document.getElementsByTagName("body")[0].appendChild(node);
+            pick = pick - 1
+        }, time)
+        time += 3000
+        
     }
-    //console.log(members);
-    document.getElementById('text').innerHTML = "HERE GOES!"
-
-    setTimeout(function () {
-        console.log('here')
-        var node = document.createElement("LI");
-        var textnode = document.createTextNode("First pick");
-        node.appendChild(textnode);
-        document.getElementsByTagName("body")[0].appendChild(node);
-    }, 3000)
 
 }
