@@ -51,7 +51,7 @@ function doit() {
             var node = document.createElement("LI");
             var textnode = document.createTextNode(pick + " " + members[pick - 1]);
             node.appendChild(textnode);
-            document.getElementsByTagName("body")[0].appendChild(node);
+            document.getElementById("ghostDiv").prepend(node);
             pick = pick - 1
         }, time)
         time += 3000
